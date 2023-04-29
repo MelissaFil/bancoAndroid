@@ -55,8 +55,10 @@ public class ContaViewModel extends AndroidViewModel {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                repository.buscarPeloNumero(numeroConta);
+
+                Conta conta = repository.buscarPeloNumero(numeroConta);
+                _contaAtual.postValue(conta);
             }
-        });
+        }).start();
     }
 }

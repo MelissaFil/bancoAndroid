@@ -17,7 +17,7 @@ public class EditarContaActivity extends AppCompatActivity {
 
     public static final String KEY_NUMERO_CONTA = "NUMCONTA";
     ContaViewModel viewModel;
-
+    Conta contaSelecionada;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +35,16 @@ public class EditarContaActivity extends AppCompatActivity {
         Intent i = getIntent();
         String numeroConta = i.getStringExtra(KEY_NUMERO_CONTA);
         //TODO usar o número da conta passado via Intent para recuperar informações da conta
-        Log.i("TAG", numeroConta);
         viewModel.buscarPeloNumero(numeroConta);
-
+        viewModel.contaAtual.observe(this, conta -> {
+            if(conta!=null){
+                campoCPF.setText(conta.cpfCliente);
+                campoNome.setText(conta.nomeCliente);
+                campoNumero.setText(conta.numero);
+                String saldo = String.valueOf(conta.saldo);
+                campoSaldo.setText(saldo);
+            }
+        });
         btnAtualizar.setText("Editar");
         btnAtualizar.setOnClickListener(
                 v -> {
