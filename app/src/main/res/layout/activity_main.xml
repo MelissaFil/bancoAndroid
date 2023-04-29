@@ -45,14 +45,7 @@
         android:layout_margin="3dp"
         android:textSize="24sp">
     </Button>
-    <Button
-        android:id="@+id/btnClientes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Clientes"
-        android:layout_margin="3dp"
-        android:textSize="24sp">
-    </Button>
+
 
     <TextView
         android:layout_width="match_parent"

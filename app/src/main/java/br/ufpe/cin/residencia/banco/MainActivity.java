@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(BancoViewModel.class);
 
         Button contas = findViewById(R.id.btnContas);
-        Button clientes = findViewById(R.id.btnClientes);
+        //Button clientes = findViewById(R.id.btnClientes);
         Button transferir = findViewById(R.id.btnTransferir);
         Button debitar = findViewById(R.id.btnDebitar);
         Button creditar = findViewById(R.id.btnCreditar);
@@ -32,14 +32,14 @@ public class MainActivity extends AppCompatActivity {
         TextView totalBanco = findViewById(R.id.totalDinheiroBanco);
 
         //Remover a linha abaixo se for implementar a parte de Clientes
-        clientes.setEnabled(false);
+        //clientes.setEnabled(false);
 
         contas.setOnClickListener(
                 v -> startActivity(new Intent(this, ContasActivity.class))
         );
-        clientes.setOnClickListener(
-                v -> startActivity(new Intent(this, ClientesActivity.class))
-        );
+//        clientes.setOnClickListener(
+//                v -> startActivity(new Intent(this, ClientesActivity.class))
+//        );
         transferir.setOnClickListener(
                 v -> startActivity(new Intent(this, TransferirActivity.class))
         );
