@@ -37,35 +37,33 @@ public class PesquisarActivity extends AppCompatActivity {
 
         btnPesquisar.setOnClickListener(
                 v -> {
-                    String oQueFoiDigitado = aPesquisar.getText().toString();
+                    String dadoPesquisa = aPesquisar.getText().toString();
                     int pesquisa = tipoPesquisa.getCheckedRadioButtonId();
                     RadioButton radioButton = findViewById(pesquisa);
 
 
                     //TODO implementar a busca de acordo com o tipo de busca escolhido pelo usuário
-                    if(!oQueFoiDigitado.isEmpty()){
+                    if(!dadoPesquisa.isEmpty()){
                         switch (tipoPesquisa.getCheckedRadioButtonId()) {
                             case R.id.peloNomeCliente:
                                 //TODO implementar a busca por nome
-                                //Log.i("TAG", "buscarPor " + oQueFoiDigitado);
-                                viewModel.buscarPeloNome(oQueFoiDigitado);
+                                viewModel.buscarPeloNome(dadoPesquisa);
                                 break;
 
                             case R.id.peloCPFcliente:
                                 //TODO implementar a busca por CPF
-                                viewModel.buscarPeloCPF(oQueFoiDigitado);
+                                viewModel.buscarPeloCPF(dadoPesquisa);
                                 Toast.makeText(this, "Busca realizada por CPF", Toast.LENGTH_SHORT).show();
                                 break;
 
                             case R.id.peloNumeroConta:
                                 //TODO implementar a busca por número
-                                viewModel.buscarPeloNumero(oQueFoiDigitado);
+                                viewModel.buscarPeloNumero(dadoPesquisa);
                                 Toast.makeText(this, "Busca realizada por número da conta", Toast.LENGTH_SHORT).show();
                                 break;
                         }
                     } else {
-                        Toast.makeText(this, "Nenhum termo foi digitado para a busca", Toast.LENGTH_SHORT).show();
-                    }
+                        aPesquisar.setError("Digite o dado do cliente");                    }
                 }
         );
 
