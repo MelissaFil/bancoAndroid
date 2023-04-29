@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +15,7 @@ import br.ufpe.cin.residencia.banco.R;
 //Ver anotações TODO no código
 public class EditarContaActivity extends AppCompatActivity {
 
-    public static final String KEY_NUMERO_CONTA = "numeroDaConta";
+    public static final String KEY_NUMERO_CONTA = "NUMCONTA";
     ContaViewModel viewModel;
 
     @Override
@@ -34,6 +35,7 @@ public class EditarContaActivity extends AppCompatActivity {
         Intent i = getIntent();
         String numeroConta = i.getStringExtra(KEY_NUMERO_CONTA);
         //TODO usar o número da conta passado via Intent para recuperar informações da conta
+        Log.i("TAG", numeroConta);
         viewModel.buscarPeloNumero(numeroConta);
 
         btnAtualizar.setText("Editar");
