@@ -43,6 +43,7 @@ public class EditarContaActivity extends AppCompatActivity {
                 campoNumero.setText(conta.numero);
                 String saldo = String.valueOf(conta.saldo);
                 campoSaldo.setText(saldo);
+                this.contaSelecionada = conta;
             }
         });
         btnAtualizar.setText("Editar");

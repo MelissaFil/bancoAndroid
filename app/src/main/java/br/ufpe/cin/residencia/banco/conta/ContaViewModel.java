@@ -37,7 +37,7 @@ public class ContaViewModel extends AndroidViewModel {
           public void run() {
               repository.atualizar(c);
           }
-      })  ;
+      }).start()  ;
     }
 
     void remover(Conta c) {
