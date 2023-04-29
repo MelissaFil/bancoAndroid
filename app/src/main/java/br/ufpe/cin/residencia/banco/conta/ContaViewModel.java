@@ -47,7 +47,7 @@ public class ContaViewModel extends AndroidViewModel {
             public void run() {
                 repository.remover(c);
             }
-        });
+        }).start();
     }
 
     void buscarPeloNumero(String numeroConta) {
